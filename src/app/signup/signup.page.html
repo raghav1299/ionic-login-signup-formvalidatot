@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      SIGN UP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="loginForm">
+
+  <ion-card>
+  <ion-list>
+
+          <ion-item>
+              <ion-label>Name</ion-label>
+              <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
+            </ion-item>
+            <div class="error-message">
+              <ng-container *ngFor="let error of error_messages.name">
+                <div class="error-message" *ngIf="loginForm.get('name').hasError(error.type) && (loginForm.get('name').dirty || loginForm.get('name').touched)">
+                  {{ error.message }}
+                </div>
+              </ng-container>
+            </div>
+          
+            <ion-item>
+              <ion-label>Reg No.</ion-label>
+        <ion-input formControlName="email" type="text" placeholder="Reg No."></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let error of error_messages.email">
+          <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label>Email ID</ion-label>
+        <ion-input formControlName="emailid" type="text" placeholder="Email ID"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let error of error_messages.emailid">
+          <div class="error-message" *ngIf="loginForm.get('emailid').hasError(error.type) && (loginForm.get('emailid').dirty || loginForm.get('emailid').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label>PASSWORD</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="PASSWORD"></ion-input>
+      </ion-item>
+      <div class="error-message">
+        <ng-container *ngFor="let error of error_messages.password">
+          <div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+      
+      <ion-item>
+          <ion-button [disabled]="!loginForm.valid" expand = "block" shape="round" (click)="go1()">REGISTER</ion-button>
+      </ion-item>
+      <ion-item>
+          <a (click)="go1()" style="cursor: pointer">Already Registered?</a>
+      </ion-item>
+
+            
+    </ion-list>
+  </ion-card>
+  </form>
+  </ion-content>
